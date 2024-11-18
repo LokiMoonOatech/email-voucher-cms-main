@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "version": "2.0",
+  "requestContext": {
+    "http": {
+      "method": "POST"
+    }
+  },
+  "body": "{\"registeredEmail\":\"yeongjongwesterngrace@onda.me\",\"registeredName\": \"테스트명\", \"propertyId\": 120135,\"channelId\": 16}"
+}

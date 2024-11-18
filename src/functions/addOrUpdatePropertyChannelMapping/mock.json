@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "version": "2.0",
+  "requestContext": {
+    "http": {
+      "method": "POST"
+    }
+  },
+  "body": "{\"channelIds\": [164, 165, 166, 167, 168], \"propertyId\": 120135, \"enabled\": true, \"agreedToTerms\": true }"
+}

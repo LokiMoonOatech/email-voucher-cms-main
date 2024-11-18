@@ -1,0 +1,17 @@
+name: Sonarqube
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Sonarqube
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: docker://sonarsource/sonar-scanner-cli:latest
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}       # organization actions secrets
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # organization actions secrets

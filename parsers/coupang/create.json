@@ -1,0 +1,66 @@
+{
+  "channelId": 168,
+  "type": "create",
+  "mailParser": [
+    {
+      "parseKey": "propertyName",
+      "parseRegex": "/상품명(.*)티켓수량/",
+      "required": true
+    },
+    {
+      "parseKey": "bookingCount",
+      "parseRegex": "/티켓수량 (\\d+)/",
+      "format": "number",
+      "required": false
+    },
+    {
+      "parseKey": "bookingNumber",
+      "parseRegex": "/티켓번호(?:\\n|\\s)((?:[^\\sㄱ-힣]|\\n)*)/",
+      "required": true
+    },
+    {
+      "parseKey": "roomTypeName",
+      "parseRegex": "/객실명(.*)티켓번호/",
+      "required": true
+    },
+    {
+      "parseKey": "ratePlanName",
+      "parseRegex": "/옵션명(.*)투숙일자/",
+      "required": true
+    },
+    {
+      "parseKey": "guestName",
+      "parseRegex": "/투숙자명(.*)연락처/",
+      "required": true
+    },
+    {
+      "parseKey": "guestPhone",
+      "parseRegex": "/연락처(.*)투숙인원/",
+      "required": true
+    },
+    {
+      "parseKey": "checkInDate",
+      "parseRegex": "/투숙일자(.*)~/",
+      "format": "date",
+      "required": true
+    },
+    {
+      "parseKey": "checkOutDate",
+      "parseRegex": "/~(.*), 총 \\d*박/",
+      "format": "date",
+      "required": true
+    },
+    {
+      "parseKey": "salePrice",
+      "parseRegex": "/총 판매가(.*)총 입금가/",
+      "format": "number",
+      "required": true
+    },
+    {
+      "parseKey": "netPrice",
+      "parseRegex": "/총 입금가(.*)도착예정시간/",
+      "format": "number",
+      "required": true
+    }
+  ]
+}

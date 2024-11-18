@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "version": "2.0",
+  "requestContext": {
+    "http": {
+      "method": "POST"
+    }
+  },
+  "body": "{\"message\":{\"data\":\"eyJlbWFpbEFkZHJlc3MiOiJlbWFpbGNtc0BvbmRhLm1lIiwiaGlzdG9yeUlkIjoxMDkzMn0=\",\"messageId\":\"7271015636951961\",\"message_id\":\"7271015636951961\",\"publishTime\":\"2023-03-28T06:00:48.122Z\",\"publish_time\":\"2023-03-28T06:00:48.122Z\"},\"subscription\":\"projects/email-voucher-cms/subscriptions/voucher-email-push-notification-dev\"}"
+}

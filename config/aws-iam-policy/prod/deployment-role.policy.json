@@ -1,0 +1,53 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["iam:PassRole"],
+      "Resource": "arn:aws:iam::464499077883:role/evcms-cloudfront-deployment-role"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:*"],
+      "Resource": [
+        "arn:aws:s3:::email-voucher-cms-prod*",
+        "arn:aws:s3:::email-voucher-cms-prod/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:ListAllMyBuckets", "s3:CreateBucket"],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack",
+        "cloudformation:UpdateStack",
+        "cloudformation:DeleteStack",
+        "cloudformation:CreateChangeSet",
+        "cloudformation:DeleteChangeSet",
+        "cloudformation:ExecuteChangeSet"
+      ],
+      "Resource": "arn:aws:cloudformation:ap-northeast-2:464499077883:stack/email-voucher-cms-prod/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:Describe*",
+        "cloudformation:List*",
+        "cloudformation:Get*",
+        "cloudformation:PreviewStackUpdate",
+        "cloudformation:ValidateTemplate"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["lambda:*"],
+      "Resource": [
+        "arn:aws:lambda:*:464499077883:function:email-voucher-cms-prod*"
+      ]
+    }
+  ]
+}

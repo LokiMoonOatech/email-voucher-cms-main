@@ -1,0 +1,55 @@
+{
+  "channelId": 165,
+  "type": "create",
+  "mailParser": [
+    {
+      "parseKey": "propertyName",
+      "parseRegex": "/숙소명\\n(.*)/",
+      "required": true
+    },
+    {
+      "parseKey": "bookingNumber",
+      "parseRegex": "/숙소 예약번호\\n(\\d+)/",
+      "required": true
+    },
+    {
+      "parseKey": "roomTypeName",
+      "parseRegex": "/객실정보\\n(.*)/",
+      "required": true
+    },
+    {
+      "parseKey": "guestName",
+      "parseRegex": "/예약자명\\n(.*)/",
+      "required": true
+    },
+    {
+      "parseKey": "guestPhone",
+      "parseRegex": "/연락처\\n(\\d+)/",
+      "required": false
+    },
+    {
+      "parseKey": "checkInDate",
+      "parseRegex": "/입실일시\\n(.*)/",
+      "format": "date",
+      "required": true
+    },
+    {
+      "parseKey": "checkOutDate",
+      "parseRegex": "/퇴실일시\\n(.*)/",
+      "format": "date",
+      "required": true
+    },
+    {
+      "parseKey": "salePrice",
+      "parseRegex": "/판매가\\n(.*)/",
+      "format": "number",
+      "required": true
+    },
+    {
+      "parseKey": "netPrice",
+      "parseRegex": "/입금가\\n(.*)/",
+      "format": "number",
+      "required": true
+    }
+  ]
+}

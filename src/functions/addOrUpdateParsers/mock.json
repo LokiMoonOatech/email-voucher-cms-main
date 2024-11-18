@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "version": "2.0",
+  "requestContext": {
+    "http": {
+      "method": "POST"
+    }
+  },
+  "body": "{\"channelId\": 16,\"type\":\"create\",\"mailParser\":[{\"parseKey\":\"propertyName\",\"parseRegex\":\"/숙소명\\\\n(.*)/\",\"required\":true},{\"parseKey\":\"reservationId\",\"parseRegex\":\"/숙소 예약번호\\\\n(\\\\d+)/\",\"required\":true},{\"parseKey\":\"roomType\",\"parseRegex\":\"/객실정보\\\\n(.*)/\",\"required\":true},{\"parseKey\":\"guestName\",\"parseRegex\":\"/예약자명\\\\n(.*)/\",\"required\":true},{\"parseKey\":\"guestPhone\",\"parseRegex\":\"/연락처\\\\n(\\\\d+)/\",\"required\":true},{\"parseKey\":\"checkInDate\",\"parseRegex\":\"/입실일시\\\\n(.*)/\",\"required\":true},{\"parseKey\":\"checkOutDate\",\"parseRegex\":\"/퇴실일시\\\\n(.*)/\",\"required\":true},{\"parseKey\":\"salePrice\",\"parseRegex\":\"/판매가\\\\n(.*)/\",\"required\":true},{\"parseKey\":\"netPrice\",\"parseRegex\":\"/입금가\\\\n(.*)/\",\"required\":true}]}"
+}

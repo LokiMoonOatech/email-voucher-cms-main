@@ -1,0 +1,57 @@
+name: Deploy (Production)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com
+          scope: '@tportio'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PAT_PACKAGE_READ_WRITE }}
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1.7.0
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Deploy to AWS Lambda (Prod)
+        run: npx serverless deploy --stage prod
+        env:
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+          MONGODB_CONNECTION_STRING: ${{ secrets.MONGODB_CONNECTION_STRING }}
+          GCP_PUBSUB_TOPIC: ${{ vars.GCP_PUBSUB_TOPIC }}
+          SLACK_ERROR_WEBHOOK: ${{ secrets.SLACK_ERROR_WEBHOOK }}
+          GDS_API_URL: ${{ secrets.GDS_API_URL }}
+          CFN_ROLE_ARN: ${{ secrets.CFN_ROLE_ARN }}
+          VPC_SUBNET_A: ${{ secrets.VPC_SUBNET_A }}
+          VPC_SUBNET_B: ${{ secrets.VPC_SUBNET_B }}
+          VPC_SECURITY_GROUP: ${{ secrets.VPC_SECURITY_GROUP }}

@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "version": "2.0",
+  "requestContext": {
+    "http": {
+      "method": "POST"
+    }
+  },
+  "body": "{\"labelName\":\"총판 오아테크\",\"vendorAlias\":\"vendor-alias-1\",\"vendorId\":\"oatech\",\"groupEmail\":\"201-booking.onda.me\"}"
+}

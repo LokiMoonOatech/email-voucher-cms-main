@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "version": "2.0",
+  "requestContext": {
+    "http": {
+      "method": "GET"
+    }
+  },
+  "queryStringParameters": {
+    "limit": 10,
+    "offset": 0,
+    "enabled": true
+  }
+}
